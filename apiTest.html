@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Test</title>
+</head>
+<body>
+
+  <script>
+    fetch("http://localhost:8080/api/teams")
+            .then(response => response.json())
+            .then(json => {
+              json.forEach(team => {
+                console.log(team);
+                showTeamData(team);
+              });
+            })
+            .catch(error => alert(error.message));
+
+    function showTeamData(teamObject) {
+        const paragraph = document.createElement("p");
+        const text = document.createTextNode(teamObject.teamName);
+        paragraph.appendChild(text);
+        document.body.appendChild(paragraph);
+    }
+
+  </script>
+</body>
+</html>
