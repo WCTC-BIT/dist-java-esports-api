@@ -1,7 +1,7 @@
 package edu.wctc.distjavaesportsapi.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,10 +16,10 @@ public class Player {
     private int id;
     @Column(name="team_id")
     private int teamId;
-    @NotNull
+    @NotBlank
     @Column(name="first_name")
     private String firstName;
-    @NotNull
+    @NotBlank
     @Column(name="last_name")
     private String lastName;
 }

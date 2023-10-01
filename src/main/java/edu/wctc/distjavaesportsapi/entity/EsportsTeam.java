@@ -1,7 +1,10 @@
 package edu.wctc.distjavaesportsapi.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,14 +17,16 @@ public class EsportsTeam {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="team_id")
     private int id;
-//    @NotNull
+    @NotBlank
     @Column(name="team_name")
     private String teamName;
-//    @NotNull
+    @NotBlank
     @Column(name="game_name")
     private String gameName;
+    @PositiveOrZero
     @Column(name="wins")
     private int wins;
+    @Min(value=0)
     @Column(name="losses")
     private int losses;
 
